@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent } from "react";
 import './mainContentStyles.css';
+import { GitHub, LinkedIn, WebStories } from "@mui/icons-material";
 
 interface SignInState {
   name:string;
@@ -19,14 +20,14 @@ const SignInForm: React.FC<SignInFormProps> = ({ state, handleChange, handleOnSu
       <form onSubmit={handleOnSubmit}>
         <h1>Sign in</h1>
         <div className="social-container">
-          <a href="#" className="social">
-            <i className="fab fa-facebook-f" />
+          <a href="https://tamanjicourage.com" className="social">
+            <WebStories />
           </a>
-          <a href="#" className="social">
-            <i className="fab fa-google-plus-g" />
+          <a href="http://www.linkedin.com/in/tamanji-courage-7a2963172" className="social">
+            <LinkedIn />
           </a>
-          <a href="#" className="social">
-            <i className="fab fa-linkedin-in" />
+          <a href="https://github.com/CypherPrime" className="social">
+            <GitHub/>
           </a>
         </div>
         <span>or use your account</span>
