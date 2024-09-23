@@ -12,10 +12,16 @@ function ProductDetails() {
   const dispatch: AppDispatch = useDispatch();
 
     const { products, loading, error } = useSelector((state: RootState) => state.products);
+
     useEffect(() => {
         dispatch(fetchProductsById(params))
-    }, [dispatch])
+    }, [dispatch])  
 
+    const product = products as any;
+
+    console.log('====================================');
+    console.log(product.price );
+    console.log('====================================');
 
 
     if (loading) {
@@ -31,10 +37,6 @@ function ProductDetails() {
                 <div className="product__photo">
                     <div className="photo-container">
                         <div className="photo-main">
-                            <div className="controls">
-                                <i className="material-icons">share</i>
-                                <i className="material-icons">favorite_border</i>
-                            </div>
                             <img src={yamImage} alt="product image" />
                         </div>
                        
@@ -42,19 +44,19 @@ function ProductDetails() {
                 </div>
                 <div className="product__info">
                     <div className="title">
-                        <h1>Product Title here</h1>
+                        <h1>{product.title}</h1>
                    
                     </div>
                     <div className="price">
-                        $ <span>5055151</span>
+                     <span>{product.price}</span>
                     </div>
                     <div className="description">
                         <h3>Description</h3>
                         <p>
-                            product description here
+                        {product.description}
                         </p>
                     </div>
-                    <button className="buy--btn">buy</button>
+                    <button className="buy--btn">Get</button>
                 </div>
             </section>
         </div>
