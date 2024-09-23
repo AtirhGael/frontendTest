@@ -34,6 +34,7 @@ import AddProducts from './AddProducts';
 import ProductionQuantityLimitsOutlined from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import UserAccounts from './UserAccount';
 import EditProduct from './EditProduct';
+import SearchResults from './SearchPage';
 
 const drawerWidth = 240;
 
@@ -120,7 +121,11 @@ export default function MainPage() {
   };
 
   const handleSearch = (): void => {
-    alert('you wanna search');
+    if (searchTerm) {
+      navigate(`/search-results`,{state:searchTerm}); 
+    } else {
+      alert('Please enter a search term');
+    }
   };
 
   const DrawerItems = [
@@ -226,6 +231,7 @@ export default function MainPage() {
           <Route path="/details" element={<ProductDetails/>} />
           <Route path="/product-list" element={<ProductListByOwner/>} />
           <Route path="/edit-product" element={<EditProduct/>} />
+          <Route path="/search-results" element={<SearchResults/>} />
         </Routes>
       </Box>
     </Box>

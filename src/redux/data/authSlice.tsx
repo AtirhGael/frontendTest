@@ -75,7 +75,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isAuthenticated = true;
-        alert(JSON.stringify(action.payload))
+        // alert(JSON.stringify(action.payload))
         console.log(action.payload, 'loggedIn Payload');
         localStorage.setItem('userId', action.payload.id);
       })
@@ -94,7 +94,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isAuthenticated = true; 
-        alert(JSON.stringify(action.payload))
+        // alert(JSON.stringify(action.payload))
         console.log(action.payload, 'SignUp  Payload');
         localStorage.setItem('userId', action.payload.id);
       })

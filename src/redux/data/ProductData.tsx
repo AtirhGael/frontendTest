@@ -32,7 +32,7 @@ export const fetchProductsById = createAsyncThunk(
   'products/fetchById',
   async (productId: string, { rejectWithValue }) => {
     try {
-      const response = await api.get(`/api/products/${productId}`);
+      const response = await api.get(`/products/${productId}`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data.message || 'Failed to fetch product');
@@ -44,7 +44,7 @@ export const UpdateProductsById = createAsyncThunk(
   'products/updateById',
   async (productId: string, { rejectWithValue }) => {
     try {
-      const response = await api.patch(`/api/products/${productId}`);
+      const response = await api.patch(`/products/${productId}`);
       return response.data;
     } catch (error: any) {
       return rejectWithValue(error.response.data.message || 'Failed to fetch product');

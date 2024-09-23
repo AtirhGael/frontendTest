@@ -7,6 +7,7 @@ import AddProducts from './data/AddProducts';
 import UserAccount from './data/UserAccount';
 import EditProduct from './data/EditProduct';
 import DeleteProduct from './data/DeleteProduct';
+import searchSlice from './data/SearchProduct'
 
 const store = configureStore({
   reducer: {
@@ -17,7 +18,8 @@ const store = configureStore({
     AddProductsSlice:AddProducts,
     UserAccountSlice:UserAccount,
     EditProductSlice:EditProduct,
-    DeleteProductSlice:DeleteProduct
+    DeleteProductSlice:DeleteProduct,
+    searchSlice:searchSlice
   },
 });
 
