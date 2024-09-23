@@ -1,57 +1,48 @@
-import React, { ChangeEvent, FormEvent } from "react";
-import './mainContentStyles.css';
-
-interface SignUpState {
-  name: string;
-  email: string;
-  password: string;
-}
+import React from "react";
 
 interface RegisterFormProps {
-  state: SignUpState;
-  handleChange: (evt: ChangeEvent<HTMLInputElement>) => void;
-  handleOnSubmit: (evt: FormEvent<HTMLFormElement>) => void;
+  state: {
+    name: string;
+    email: string;
+    password: string;
+  };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  loading: boolean;
 }
 
-const RegisterForm: React.FC<RegisterFormProps> = ({ state, handleChange, handleOnSubmit }) => {
+const RegisterForm: React.FC<RegisterFormProps> = ({ state, handleChange, handleOnSubmit, loading }) => {
   return (
     <div className="form-container sign-up-container">
       <form onSubmit={handleOnSubmit}>
         <h1>Create Account</h1>
-        <div className="social-container">
-          <a href="#" className="social">
-            <i className="fab fa-facebook-f" />
-          </a>
-          <a href="#" className="social">
-            <i className="fab fa-google-plus-g" />
-          </a>
-          <a href="#" className="social">
-            <i className="fab fa-linkedin-in" />
-          </a>
-        </div>
-        <span>or use your email for registration</span>
         <input
           type="text"
+          placeholder="Name"
           name="name"
           value={state.name}
           onChange={handleChange}
-          placeholder="Name"
+          required
         />
         <input
           type="email"
+          placeholder="Email"
           name="email"
           value={state.email}
           onChange={handleChange}
-          placeholder="Email"
+          required
         />
         <input
           type="password"
+          placeholder="Password"
           name="password"
           value={state.password}
           onChange={handleChange}
-          placeholder="Password"
+          required
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Signing Up..." : "Sign Up"}
+        </button>
       </form>
     </div>
   );

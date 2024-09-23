@@ -12,12 +12,9 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          {/* Unprotected route for login/signup */}
           <Route path="/" element={<Authentication />} />
-          
-          {/* Protected routes: only accessible when authenticated */}
           <Route element={<ProtectedRoute />}>
-            <Route path="/*" element={<MainPage />} /> {/* Catch-all for MainPage routes */}
+            <Route path="/*" element={<MainPage />} />
           </Route>
         </Routes>
         <ToastContainer />

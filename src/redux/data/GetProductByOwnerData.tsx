@@ -26,7 +26,7 @@ const initialState: ProductState = {
 export const fetchProductsByOwner = createAsyncThunk(
   'products/fetchById',
   async (productId: string, { rejectWithValue }) => {
-    alert(productId)
+    // alert(productId)
     try {
       const response = await api.get(`/products/owner/${productId as string}`);
       return response.data;

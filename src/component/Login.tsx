@@ -1,55 +1,42 @@
-import React, { ChangeEvent, FormEvent } from "react";
-import './mainContentStyles.css';
-import { GitHub, LinkedIn, WebStories } from "@mui/icons-material";
+import React from "react";
 
-interface SignInState {
-  name:string;
-  email: string;
-  password: string;
+interface LoginFormProps {
+  state: {
+    email: string;
+    password: string;
+  };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  loading: boolean;
 }
 
-interface SignInFormProps {
-  state: SignInState;
-  handleChange: (evt: ChangeEvent<HTMLInputElement>) => void;
-  handleOnSubmit: (evt: FormEvent<HTMLFormElement>) => void;
-}
-
-const SignInForm: React.FC<SignInFormProps> = ({ state, handleChange, handleOnSubmit }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ state, handleChange, handleOnSubmit, loading }) => {
   return (
     <div className="form-container sign-in-container">
       <form onSubmit={handleOnSubmit}>
         <h1>Sign in</h1>
-        <div className="social-container">
-          <a href="https://tamanjicourage.com" className="social">
-            <WebStories />
-          </a>
-          <a href="http://www.linkedin.com/in/tamanji-courage-7a2963172" className="social">
-            <LinkedIn />
-          </a>
-          <a href="https://github.com/CypherPrime" className="social">
-            <GitHub/>
-          </a>
-        </div>
-        <span>or use your account</span>
         <input
           type="email"
           placeholder="Email"
           name="email"
           value={state.email}
           onChange={handleChange}
+          required
         />
         <input
           type="password"
-          name="password"
           placeholder="Password"
+          name="password"
           value={state.password}
           onChange={handleChange}
+          required
         />
-        <a href="#">Forgot your password?</a>
-        <button type="submit">Sign In</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Signing In..." : "Sign In"}
+        </button>
       </form>
     </div>
   );
 };
 
-export default SignInForm;
+export default LoginForm;

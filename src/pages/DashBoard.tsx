@@ -3,7 +3,7 @@ import UserCountCard from '../component/UserCards';
 import { AppDispatch, RootState } from '../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { deleteUser, fetchUsers } from '../redux/data/User';
+import { fetchUsers } from '../redux/data/User';
 import { fetchProducts } from '../redux/data/ProductData';
 
 

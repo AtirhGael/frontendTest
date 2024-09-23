@@ -3,13 +3,21 @@ import productReducer from '../redux/data/ProductData';
 import userSlice from '../redux/data/User'
 import authenticate from '../redux/data/authSlice'
 import productByOwnerSlice from '../redux/data/GetProductByOwnerData'
+import AddProducts from './data/AddProducts';
+import UserAccount from './data/UserAccount';
+import EditProduct from './data/EditProduct';
+import DeleteProduct from './data/DeleteProduct';
 
 const store = configureStore({
   reducer: {
     products: productReducer,
     users: userSlice,
     authSlice:authenticate,
-    productByOwnerSlice:productByOwnerSlice
+    productByOwnerSlice:productByOwnerSlice,
+    AddProductsSlice:AddProducts,
+    UserAccountSlice:UserAccount,
+    EditProductSlice:EditProduct,
+    DeleteProductSlice:DeleteProduct
   },
 });
 

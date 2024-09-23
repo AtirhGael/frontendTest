@@ -52,7 +52,6 @@ export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
 });
 
 
-// slices
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -76,7 +75,8 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isAuthenticated = true;
-        alert(JSON.stringify(action.payload.id))
+        alert(JSON.stringify(action.payload))
+        console.log(action.payload, 'loggedIn Payload');
         localStorage.setItem('userId', action.payload.id);
       })
       .addCase(loginUser.rejected, (state, action) => {
@@ -94,6 +94,9 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isAuthenticated = true; 
+        alert(JSON.stringify(action.payload))
+        console.log(action.payload, 'SignUp  Payload');
+        localStorage.setItem('userId', action.payload.id);
       })
       .addCase(signupUser.rejected, (state, action) => {
         state.loading = false;

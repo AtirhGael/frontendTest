@@ -30,6 +30,10 @@ import ProductPage from './ProductPage';
 import ProductDetails from './ProductDetails';
 import Authentication from './Auth';
 import ProductListByOwner from './ProductListByOwner';
+import AddProducts from './AddProducts';
+import ProductionQuantityLimitsOutlined from '@mui/icons-material/ProductionQuantityLimitsOutlined';
+import UserAccounts from './UserAccount';
+import EditProduct from './EditProduct';
 
 const drawerWidth = 240;
 
@@ -122,9 +126,9 @@ export default function MainPage() {
   const DrawerItems = [
     { name: 'Dashboard', icon: <DashboardIcon />, route: '/dashboard' },
     { name: 'Product', icon: <Inventory2Icon />, route: '/product' },
-    { name: 'Product Sales', icon: <ProductionQuantityLimitsIcon />, route: '/sales' },
     { name: 'Team', icon: <Groups2Icon />, route: '/product-list' },
-    { name: 'Auth', icon: <Groups2Icon />, route: '/' },
+    { name: 'Add Product', icon: <ProductionQuantityLimitsOutlined />, route: '/add-product' },
+    { name: 'User Account', icon: <PersonIcon />, route: '/user-account' },
   ];
 
   return (
@@ -217,11 +221,11 @@ export default function MainPage() {
         <Routes>
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/product" element={<ProductPage />} />
-          <Route path="/sales" element={<Typography>Product Sales Page</Typography>} />
-          <Route path="/team" element={<Typography>Team Page</Typography>} />
+          <Route path="/user-account" element={<UserAccounts/>} />
+          <Route path="/add-product" element={<AddProducts/>} />
           <Route path="/details" element={<ProductDetails/>} />
-          <Route path="/" element={<Authentication/>} />
           <Route path="/product-list" element={<ProductListByOwner/>} />
+          <Route path="/edit-product" element={<EditProduct/>} />
         </Routes>
       </Box>
     </Box>
